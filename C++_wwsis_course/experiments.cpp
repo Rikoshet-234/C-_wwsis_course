@@ -156,10 +156,77 @@ int main()
 	cout << test_[2] << endl;
 	system("pause");
 	return 0;
+}
+*/
+/*
+#include <iostream>
+#include <cstdlib>
+using namespace std;
 
+int main()
+{
+	int tab[5] = { 1, 2, 5 };
+	for (int i = 0; i < 5; i++) 
+	{
+		if (tab[i] % 2 == 0) 
+		{
+			cout << tab[i] << endl;
+		}
+	}
+	for (int i = 0; i < 5; i++) 
+	{
+		if (tab[i] % 2) 
+		{
+			cout << tab[i] << endl;
+		}
+	}
+	cout << " " << endl;
+//	cout << test_[2] << endl;
+	system("pause");
+	return 0;
 }
 */
 
+#include <stdarg.h>
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+	int const lichba_ocen(6);
+	double oceny[lichba_ocen];
+
+	oceny[0] = 4.5;
+	oceny[1] = 6;
+	oceny[2] = 2;
+	oceny[3] = 3;
+	oceny[4] = 4;
+	oceny[5] = 5;
+
+	double srednia(0);
+	for (int i(0); i < lichba_ocen; ++i) 
+	{
+		srednia += oceny[i];
+	}
+	srednia /= lichba_ocen;
+
+	cout << "twoja srednia wynosi" << srednia << endl;
+	system("pause");
+	return 0;
+}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+	
