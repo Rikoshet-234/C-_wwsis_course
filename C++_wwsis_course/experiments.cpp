@@ -186,16 +186,17 @@ int main()
 	return 0;
 }
 */
-
-#include <stdarg.h>
+/*
+//#include "stdafx.h";
 #include <iostream>
 using namespace std;
 
 int main() 
 {
-	int const lichba_ocen(6);
+	int const lichba_ocen = 6;
 	double oceny[lichba_ocen];
-
+	float qwert4567 = 734938.687677867868;
+	cout << qwert4567 << endl;
 	oceny[0] = 4.5;
 	oceny[1] = 6;
 	oceny[2] = 2;
@@ -203,16 +204,35 @@ int main()
 	oceny[4] = 4;
 	oceny[5] = 5;
 
-	double srednia(0);
+	double srednia = 0;
 	for (int i(0); i < lichba_ocen; ++i) 
 	{
 		srednia += oceny[i];
 	}
 	srednia /= lichba_ocen;
-
-	cout << "twoja srednia wynosi" << srednia << endl;
+	cout << "twoja srednia wynosi " << srednia << endl;
 	system("pause");
 	return 0;
+}
+*/
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+	int t1[3] = { 1, 2, 12 };
+	int t2[3] = { 3, 5, 3 };
+	int suma[3];
+	for (int i = 0; i < 3; i++)
+	{
+		suma[i] = t1[i] + t2[i];
+	}
+	for (int o = 0; o < 3; o++ ) 
+	{
+		cout << suma[o] << " " << endl;
+	}
+	cout << endl;
+	system("pause");
 }
 
 
@@ -229,4 +249,6 @@ int main()
 
 
 
-	
+
+
+
