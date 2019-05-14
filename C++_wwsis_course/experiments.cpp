@@ -89,6 +89,7 @@ void TekstNaEkranie()
 	cout << endl;
 }
 */
+/*
 #include <cstdint>
 #include <iostream>
 #include <cstdlib>
@@ -142,3 +143,23 @@ int main()
 	system("PAUSE");
 	return EXIT_SUCCESS;
 }
+*/
+
+/*
+#include <iostream>
+//#include <cstdlib>
+using namespace std;
+
+int main()
+{
+	int test_[3] = { 3, 6, 19090 };
+	cout << test_[2] << endl;
+	system("pause");
+	return 0;
+
+}
+*/
+
+
+
+
