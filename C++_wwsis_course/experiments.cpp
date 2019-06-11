@@ -215,6 +215,7 @@ int main()
 	return 0;
 }
 */
+/*
 #include <iostream>
 using namespace std;
 
@@ -234,19 +235,388 @@ int main()
 	cout << endl;
 	system("pause");
 }
+*/
+/*
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+using namespace std;
+*/
+/*
+#include <cstdlib>
+#include <iostream>
+#include <ctime>
+
+int main()
+{
+	// Используем текущее время как начальное значение для генератора случайных чисел
+	std::srand(unsigned(std::time(0)));
+	int random_variable = std::rand();
+	std::cout << "Случайное значение на отрезке [0 " << RAND_MAX << "]: "
+		<< random_variable << '\n';
+}
+*/
+/*
+#include <algorithm>
+#include <cstdlib>
+#include <conio.h>
+#include <functional>
+#include <array>
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	array<int, 10> s = { 5, 7, 4, 2, 8, 6, 1, 9, 0, 3 };
+
+	// sort using the default operator<
+	sort(s.begin(), s.end());
+	for (auto a : s) {
+		cout << a << " ";
+	}
+	cout << '\n';
+
+	// sort using a standard library compare function object
+	sort(s.begin(), s.end(), greater<int>());
+	for (auto a : s) {
+		cout << a << " ";
+	}
+	cout << '\n';
+
+	// sort using a custom function object
+	struct {
+		bool operator()(int a, int b) const
+		{
+			return a < b;
+		}
+	} customLess;
+	sort(s.begin(), s.end(), customLess);
+	for (auto a : s) {
+		cout << a << " ";
+	}
+	cout << '\n';
+
+	// sort using a lambda expression 
+	sort(s.begin(), s.end(), [](int a, int b) {
+		return a > b;
+	});
+	for (auto a : s) {
+		cout << a << " ";
+	}
+	cout << '\n';
+	system("pause");
+}
+*/
+
+/*
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int tab[15][20];
+int start, finish, type_of_sorting;
+
+int check_range()
+{
+	cout << "Give the start number of random range: " << endl;
+	cin >> start;
+	cout << "Give the end number of random range: " << endl;
+	cin >> finish;
+
+	if (start > finish)
+	{
+		int buf = start;
+		start = finish;
+		finish = buf;
+	}
+}
+
+int fillTabWith300RandNum(int a, int b)
+{
+	for (int i = 0; i < 300; i++)
+	{
+		tab[i] = rand() % (finish - start + 1) + start;
+	}
+	cout << "" << endl;
+}
+
+int ascend_sorting()
+{
+	for (int i = 0; i < 300; i++)
+	{
+		for (int j = i; j < 300; j++)
+		{
+			int tmp = tab[i];
+			if (tab[j] < tmp)
+			{
+				tab[i] = tab[j];
+				tab[j] = tmp;
+			}
+		}
+	}
+}
+
+int descend_sorting()
+{
+	for (int i = 0; i < 300; i++)
+	{
+		for (int j = i; j < 300; j++)
+		{
+			int tmp = tab[i];
+			if (tab[j] > tmp)
+			{
+				tab[i] = tab[j];
+				tab[j] = tmp;
+			}
+		}
+	}
+}
+
+void display_table()
+{
+	for (int i = 0; i < 300; i++)
+	{
+		cout << tab[i] << endl;
+	}
+}
 
 
+int main()
+{
+	srand(time(NULL));
+	cout << "Give the range of numbers to generate random 300 numbers" << endl;
+	cout << "------------" << endl;
+
+	check_range();
+
+	fillTabWith300RandNum(start, finish);
 
 
+	while (true)
+	{
+		cout << "What kind of sorting use: ascend or descend?" << endl;
+		cout << "1. Ascend" << endl;
+		cout << "2. Descend" << endl;
+		cout << "3. exit" << endl;
+		cout << "Make your choice:  ";
+		cin >> type_of_sorting;
+
+		switch (type_of_sorting)
+		{
+		case 1:
+			//Ascend sorting
+			ascend_sorting();
+			display_table();
+			break;
+
+		case 2:
+			//Descend sorting
+			descend_sorting();
+			display_table();
+
+			break;
+
+		case 3:
+			exit(0);
+
+		default:
+			cout << "Make your choice from 1,2 or 3." << endl;
+			break;
+		}
+	}
+	return 0;
+}
+*/
+
+/*
+#include <cstdlib>
+#include <iostream>
+using namespace std;
+
+int zm_globalna = 8; // zmienna globalna
+
+void funkcja_a() 
+{
+	int zm_globalna = 25; // nadpisanie zmiennej-
+	// globalnej i stworzenie lokalnej o takiej samej nazwie
+	cout << "wartosc zmiennej lokalnej = " << zm_globalna << endl;
+	// zmienna lokalna z zasiegim tylko na terenie funkcji funkcja_a()
+}
+
+int main() 
+{
+	funkcja_a();
+	cout << "wartosc zmiennej globalnej =" << zm_globalna; // zmienna
+	// globalna
+	cout << endl;
+	system("pause");
+	return 0;
+}
+*/
+/*
+#include <algorithm>
+#include <cstdlib>
+#include <conio.h>
+#include <functional>
+#include <array>
+#include <iostream>
+using namespace std;
+*/
+/*
+#include <iostream>
+#include <time.h>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+	int array[10][10][10];
+	bool unique[10000];
+	for (int i = 0; i < 10000; i++)
+		unique[i] = 0;
+	srand(time(NULL));
+
+	int n = 5, m = 5, q = 5, num;
 
 
+	// cout << "Enter matrix size n, m, q\n";
+	// cin >> n >> m >> q;
 
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < m; j++)
+			for (int k = 0; k < q; k++) {
+				do {
+					num = rand() % 999;
+				} while (unique[num] != 0);
+				array[i][j][k] = num;
+				unique[num] = 1;
+			}
 
+	cout << "Random unsorted matrix 5*5*5\n";
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			for (int k = 0; k < q; k++) {
+				cout << array[i][j][k] << " ";
+			}
+			cout << "\n";
+		}
+		cout << "\n";
+	}
 
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			sort(array[i][j], array[i][j] + q);
+		}
+	}
 
+	cout << "\nRandom sorted matrix 5*5*5\n";
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			for (int k = 0; k < q; k++) {
+				cout << array[i][j][k] << " ";
+			}
+			cout << "\n";
+		}
+		cout << "\n";
+	}
+	system("pause");
+}
+*/
+#include <conio.h>
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
 
+int tab[10][10];
 
+void Rand_10x10_fill(int start, int finish)
+{
+	for (int i = 0; i < 20; i++)
+	{
+		for (int j = 0; j < 15; j++)
+		{
+			tab[i][j] = rand() % (finish - start + 1) + start;
+		}
+	}
+}
+/*
+void sort()
+{
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 10; j++)
+		{
+			int tmp = tab[i];
+			if (tab[j] > tmp)
+			{
+				tab[i] = tab[j];
+				tab[j] = tmp;
+			}
+		}
+	}
+}
+*/
+/*
+void display_table()
+{
+	for (int j = 0; j < 10; j++)
+	{
+		for (int i = 0; i < 10; i++)
+		{
+			cout << tab[i][j] << endl;
+		}
+	}
+}
+*/
 
+void disp() {
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 10; j++)
+		{
+			cout << " " << tab[i][j];
+		}
+		cout << endl;
+	}
+}
+
+const int size = 7;
+
+/*
+for (int i=0; i<size; i++) {
+	for (int j=0; j<size; j++)
+		cout << " " << MAS[i][j];
+	cout << endl; }
+*/
+
+int main()
+{
+	srand(time(NULL));
+	Rand_10x10_fill(1, 900);
+	cout << endl;
+	cout << "macierz randomowa" << endl;
+	cout << endl;
+	disp();
+	cout << endl;
+	cout << "macierz odsortowana" << endl;
+/*
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++) {
+			cout << tab[i][j] << " ";
+		}
+		cout << "\n";
+	}
+*/
+	cout << endl;
+	//sort();
+
+	disp();
+	cout << endl;
+	system("pause");
+}
 
 
 
