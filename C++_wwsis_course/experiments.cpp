@@ -529,19 +529,29 @@ int main() {
 #include <cstdlib>
 #include <ctime>
 using namespace std;
-
-int tab[10][10];
-
+////////////////
+const int m = 10, n = 10;
+//int *wierszy = &m, *columny = &n;
+int tab[m][n];
+int sum = m * n;
+////////////////
+/*
+void create_matrix(int i, int j)
+{
+ 	int tab[i][j];
+}
+*/
 void Rand_10x10_fill(int start, int finish)
 {
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < m; i++)
 	{
-		for (int j = 0; j < 15; j++)
+		for (int j = 0; j < n; j++)
 		{
 			tab[i][j] = rand() % (finish - start + 1) + start;
 		}
 	}
 }
+
 /*
 void sort()
 {
@@ -559,31 +569,39 @@ void sort()
 	}
 }
 */
-/*
-void display_table()
+
+void sort(int matrix[m][n])
 {
-	for (int j = 0; j < 10; j++)
+	for (int ir = 0; ir < m; ir++)
 	{
-		for (int i = 0; i < 10; i++)
+		for (int ic = 0; ic < m; ic++)
 		{
-			cout << tab[i][j] << endl;
+			for (int jr = 0; jr < n; jr++)
+			{
+				for (int jc = 0; jc < n; jc++)
+				{
+					if (matrix[ir][jr] > matrix[ic][jc])
+					{
+						int temp = matrix[ir][jr];
+						matrix[ir][jr] = matrix[ic][jc];
+						matrix[ic][jc] = temp;
+					}
+				}
+			}
 		}
 	}
 }
-*/
 
-void disp() {
-	for (int i = 0; i < 10; i++)
+void display_matrix() {
+	for (int i = 0; i < m; i++)
 	{
-		for (int j = 0; j < 10; j++)
+		for (int j = 0; j < n; j++)
 		{
 			cout << " " << tab[i][j];
 		}
 		cout << endl;
 	}
 }
-
-const int size = 7;
 
 /*
 for (int i=0; i<size; i++) {
@@ -594,26 +612,16 @@ for (int i=0; i<size; i++) {
 
 int main()
 {
+	//cin >> m >> n;
 	srand(time(NULL));
-	Rand_10x10_fill(1, 900);
+	Rand_10x10_fill(NULL, sum);
 	cout << endl;
-	cout << "macierz randomowa" << endl;
+	cout << "macierz randomowa \n\n";
+	display_matrix();
 	cout << endl;
-	disp();
-	cout << endl;
-	cout << "macierz odsortowana" << endl;
-/*
-	for (int i = 0; i < 10; i++) {
-		for (int j = 0; j < 10; j++) {
-			cout << tab[i][j] << " ";
-		}
-		cout << "\n";
-	}
-*/
-	cout << endl;
-	//sort();
-
-	disp();
+	cout << "macierz odsortowana \n\n";
+	sort(tab);
+	display_matrix();
 	cout << endl;
 	system("pause");
 }
